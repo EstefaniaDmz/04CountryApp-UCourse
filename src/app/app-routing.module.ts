@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'about', component: AboutPageComponent },
   { path: 'contact', component: ContactPageComponent },
+  { path: 'countries', loadChildren: () => import('./countries/countries-routing.module').then(m => m.CountriesRoutingModule) },
   { path: '**', redirectTo: ''}
 ];
 
