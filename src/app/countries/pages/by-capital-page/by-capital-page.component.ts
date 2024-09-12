@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class ByCapitalPageComponent {
-
+  public searchByCapital(term: string): void {
+    console.log('desde capital page');
+    console.log({term});
+  }
 }

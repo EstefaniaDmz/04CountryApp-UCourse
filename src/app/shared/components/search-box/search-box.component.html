@@ -2,4 +2,7 @@
     class="w-full mt-2 py-2.5 px-4 rounded-2xl border border-teal-700 shadow-md
     placeholder:text-gray-400 placeholder:italic
     focus:outline-cyan-800" 
+    [placeholder]="placeholder"
+    (keyup.enter)="getInputText()"
+    #txtInput
 />
