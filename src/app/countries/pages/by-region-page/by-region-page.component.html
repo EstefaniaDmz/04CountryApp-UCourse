@@ -1,1 +1,5 @@
-<p>by-region-page works!</p>
+<h1 class="text-4xl font-bold text-teal-900 outline-2 outline-cyan-50 mb-6">Por región</h1>
+
+<p class="text-2xl font-semibold">Búsqueda: </p>
+<shared-search-box (onValue)="searchByRegion($event)" placeholder="Buscar por región..."></shared-search-box>
+<countries-table [countries]="countries"></countries-table>

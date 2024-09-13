@@ -21,9 +21,9 @@
                     <td><div class="flex justify-center"><img [src]="item.flags.svg" [alt]="item.flags.alt" width="48" /></div></td>
                     <td>{{item.name.common}}</td>
                     <td>{{item.capital}}</td>
-                    <td>{{item.population}}</td>
+                    <td>{{item.population | number}}</td>
                     <td>
-                        <button class="rounded-full bg-teal-700 border-teal-950 text-white text-sm font-medium px-2 py-2">Ver más</button>
+                        <a class="underline text-teal-700 px-2 py-2">Ver más</a>
                     </td>
                 </tr>
                 
