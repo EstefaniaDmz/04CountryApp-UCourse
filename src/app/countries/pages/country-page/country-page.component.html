@@ -1,1 +1,58 @@
-<p>country-page works!</p>
+<ng-template #loading>
+    <div class="flex flex-col justify-center items-center h-screen">
+        <div class="flex flex-row gap-2">
+            <div class="w-4 h-4 rounded-full bg-teal-500 animate-bounce"></div>
+            <div class="w-4 h-4 rounded-full bg-teal-600 animate-bounce [animation-delay:-.3s]"></div>
+            <div class="w-4 h-4 rounded-full bg-teal-700 animate-bounce [animation-delay:-.5s]"></div>
+        </div>
+        <p class="italic text-gray-400 mt-4">Cargando...</p>
+    </div>
+</ng-template>
+
+    <div *ngIf="country; else loading" class="flex justify-center mt-6">
+        <div class="grid grid-cols-3 gap-x-44">
+            <div class="col-span-1 grid justify-start">
+                <h1 class="text-4xl font-bold text-teal-900 outline-2 outline-cyan-50 mb-6">{{country.name.common}}</h1>
+                <p class="text-gray-900 font-semibold">Población: <span class="font-normal">{{country.population | number}}</span></p>
+                <p class="text-gray-900 font-semibold mt-6">Código: <span class="font-normal">{{country.cca3}}</span></p>
+                <p class="text-gray-900 font-semibold mt-6">Capital: <span class="font-normal">{{country.capital}}</span></p>
+                <p class="text-gray-900 font-semibold mt-6">Coordenadas: <span class="font-normal">{{country.capitalInfo.latlng}}</span></p>
+            </div>
+            <div class="col-span-2 grid justify-start">
+                <img [src]="country.flags.svg" [alt]="country.name.common" width="400" />
+            </div>
+            <div class="col-span-3 mt-6 grid justify-start">
+                <h3 class="font-semibold text-2xl">Traducciones</h3>
+                <div class="grid grid-cols-3 mt-3 gap-x-4 gap-y-2">
+                    <p class="border border-teal-600 bg-cyan-200 text-teal-600 rounded-xl text-sm px-2 py-1 text-center">
+                        {{country.translations['spa'].common}}
+                    </p>
+                    <p class="border border-teal-600 bg-cyan-200 text-teal-600 rounded-xl text-sm px-2 py-1 text-center">
+                        {{country.translations['ara'].common}}
+                    </p>
+                    <p class="border border-teal-600 bg-cyan-200 text-teal-600 rounded-xl text-sm px-2 py-1 text-center">
+                        {{country.translations['fra'].common}}
+                    </p>
+                    <p class="border border-teal-600 bg-cyan-200 text-teal-600 rounded-xl text-sm px-2 py-1 text-center">
+                        {{country.translations['jpn'].common}}
+                    </p>
+                    <p class="border border-teal-600 bg-cyan-200 text-teal-600 rounded-xl text-sm px-2 py-1 text-center">
+                        {{country.translations['bre'].common}}
+                    </p>
+                    <p class="border border-teal-600 bg-cyan-200 text-teal-600 rounded-xl text-sm px-2 py-1 text-center">
+                        {{country.translations['nld'].common}}
+                    </p>
+                    <p class="border border-teal-600 bg-cyan-200 text-teal-600 rounded-xl text-sm px-2 py-1 text-center">
+                        {{country.translations['rus'].common}}
+                    </p>
+                    <p class="border border-teal-600 bg-cyan-200 text-teal-600 rounded-xl text-sm px-2 py-1 text-center">
+                        {{country.translations['urd'].common}}
+                    </p>
+                    <p class="border border-teal-600 bg-cyan-200 text-teal-600 rounded-xl text-sm px-2 py-1 text-center">
+                        {{country.translations['zho'].common}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
