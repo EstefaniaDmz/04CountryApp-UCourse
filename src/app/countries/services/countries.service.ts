@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { Country } from '../interfaces/country';
 
 @Injectable({providedIn: 'root'})
@@ -28,5 +28,13 @@ export class CountriesService {
         .pipe(
             catchError(error => of([]))
         );
+    }
+
+    public searchByAlphaCode(code: string): Observable<Country | null> {
+        return this.http.get<Country[]>(`${this.apiUrl}alpha/${code}`)
+            .pipe(
+                map(c => c.length > 0 ? c[0] : null),
+                catchError(() => of(null))
+            );
     }
 }
