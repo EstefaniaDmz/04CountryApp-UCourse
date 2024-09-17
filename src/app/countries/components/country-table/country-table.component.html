@@ -6,8 +6,9 @@
     <div class="mt-6 border border-teal-600 rounded-lg shadow-sm overflow-hidden">
         <table class="w-full rounded-lg">
             <thead>
-                <tr class="grid grid-cols-6 justify-center bg-gradient-to-r from-teal-200 to-green-200 leading-9">
+                <tr class="grid grid-cols-7 justify-center bg-gradient-to-r from-teal-200 to-green-200 leading-9">
                     <th>#</th>
+                    <th>Icon</th>
                     <th>Bandera</th>
                     <th>Nombre</th>
                     <th>Capital</th>
@@ -16,8 +17,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of countries; let i = index" class="grid grid-cols-6 justify-center text-center items-center leading-7 border-t py-1.5 border-blue-300 hover:bg-blue-100 hover:bg-opacity-30 hover:shadow-md hover:font-medium">
+                <tr *ngFor="let item of countries; let i = index" class="grid grid-cols-7 justify-center text-center items-center leading-7 border-t py-1.5 border-blue-300 hover:bg-blue-100 hover:bg-opacity-30 hover:shadow-md hover:font-medium">
                     <td>{{i + 1}}</td>
+                    <td>{{item.flag}}</td>
                     <td><div class="flex justify-center"><img [src]="item.flags.svg" [alt]="item.flags.alt" width="48" /></div></td>
                     <td>{{item.name.common}}</td>
                     <td>{{item.capital}}</td>

@@ -1,0 +1,7 @@
+.spinner-container {
+    @apply fixed bg-teal-700 p-2.5 flex rounded-full items-center right-2 bottom-2 font-bold shadow-md shadow-cyan-900
+}
+
+.spinner-container, h3 {
+    @apply text-sm text-white uppercase text-center mr-2
+}
