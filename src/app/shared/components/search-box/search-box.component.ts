@@ -1,14 +1,15 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { debounceTime, Subject } from 'rxjs';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { debounceTime, Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'shared-search-box',
   templateUrl: './search-box.component.html'
 })
-export class SearchBoxComponent implements OnInit {
+export class SearchBoxComponent implements OnInit, OnDestroy {
   //Subject: tipo especial de Observable, se puede hacer todo con lo que hacemos los observables
   private debouncer: Subject<string> = new Subject<string>();
-
+  private debouncerSuscription?: Subscription;
+  
   @ViewChild('txtInput') txtInput!: ElementRef<HTMLInputElement>;
 
   @Output() public onValue: EventEmitter<string> = new EventEmitter();
@@ -18,13 +19,17 @@ export class SearchBoxComponent implements OnInit {
   @Input() public placeholder: string = '';
 
   ngOnInit(): void {
-    this.debouncer
+    this.debouncerSuscription = this.debouncer
     .pipe(
       debounceTime(300)
     )
     .subscribe(value => {
       this.onDebounce.emit(value);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.debouncerSuscription?.unsubscribe() ;
   }
 
   onKeyPress(searchTerm: string) { 
