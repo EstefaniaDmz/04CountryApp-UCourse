@@ -1,6 +1,14 @@
 <h1 class="text-4xl font-bold text-teal-900 outline-2 outline-cyan-50 mb-6">Por región</h1>
 
 <p class="text-2xl font-semibold">Búsqueda: </p>
-<shared-search-box (onDebounce)="searchByRegion($event)" placeholder="Buscar por región..."></shared-search-box>
+<div class="grid grid-cols-5 gap-x-4 mt-2">
+    <button *ngFor="let item of regions" class="rounded-lg font-semibold text-cyan-50 py-2.5 shadow-md border border-teal-600"
+    (click)="searchByRegion(item)"
+    [ngClass]="{
+        'bg-teal-900': selectedRegion === item,
+        'bg-gradient-to-tr from-cyan-400 to-emerald-600': selectedRegion != item}">
+        {{item}}
+    </button>
+</div>
 <countries-table [countries]="countries"></countries-table>
 <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>

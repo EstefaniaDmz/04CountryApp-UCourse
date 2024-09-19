@@ -1,5 +1,5 @@
 <h1 class="text-4xl font-bold text-teal-900 outline-2 outline-cyan-50 mb-6">Por nombre</h1>
 <p class="text-2xl font-semibold">Búsqueda: </p>
-<shared-search-box (onDebounce)="searchByName($event)" placeholder="Buscar por nombre..."></shared-search-box>
+<shared-search-box [inputValue]="initialValue" (onDebounce)="searchByName($event)" placeholder="Buscar por nombre..."></shared-search-box>
 <countries-table [countries]="countries"></countries-table>
 <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>

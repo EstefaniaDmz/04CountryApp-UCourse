@@ -18,6 +18,8 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
 
   @Input() public placeholder: string = '';
 
+  @Input() public inputValue: string = '';
+
   ngOnInit(): void {
     this.debouncerSuscription = this.debouncer
     .pipe(
